@@ -1,18 +1,32 @@
-//seleciona apenas um elemento:
+const eventobotao = document.querySelector('#submit-button');
+const form = document.querySelector('#my-form')
 
-// const textoH1 = document.getElementById('add-user'); //retorna uma referencia ao elemento
-// textoH1.innerText = 'Modificando H1'
+const items = document.querySelector('.items')
+console.log(items)
 
-const textoh1 = document.querySelector('#add-user');//retorna o elemento em si
-textoh1.textContent = 'Modificando h1'
+const nameinput = document.querySelector('#name');
+const emailInput = document.querySelector('#email');
 
-//=============================================================
+const body = document.querySelector('body')
 
-//seleciona mais de um elemento:
+eventobotao.addEventListener('click', function(event){
+    event.preventDefault();
 
-// const todosItens = document.querySelectorAll(".item")
-// console.log(todosItens[1]);
+    const nomeValue = nameinput.value;
+    const emailValue = emailInput.value;
 
-const todosItens = document.getElementsByClassName("item");
-console.log(todosItens); //retorna um HTMLCollection, ruim de manipular
+    if(nomeValue === '' || emailValue === '' ){
+        return alert('Preencha todos os campos')
+    }
+
+    form.style.background = "Green";
+
+    items.firstElementChild.textContent = nomeValue;
+    items.children[1].textContent = emailValue;
+
+    
+
+    body.style.background = "orange"
+});
+
 
